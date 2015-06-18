@@ -22,15 +22,25 @@
             <Button
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:background="@drawable/titlebar_menu_selector"
+                android:background="@drawable/icon_menu"
                 android:id="@+id/title_bar_left_menu"
                 android:layout_gravity="left|center_vertical"
                 android:layout_marginLeft="10dp"/>
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/logo_evp"
+                android:layout_gravity="center"
+                android:padding="7dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="7dp"
+                android:visibility="gone"
                 android:text="RESideMenu DEMO"
                 android:textSize="24sp"
                 android:textColor="#999999"
@@ -39,7 +49,7 @@
             <Button
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:background="@drawable/titlebar_menu_selector"
+                android:background="@drawable/icon_menu"
                 android:id="@+id/title_bar_right_menu"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="10dp"/>

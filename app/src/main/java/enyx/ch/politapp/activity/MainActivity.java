@@ -3,7 +3,6 @@ package enyx.ch.politapp.activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,10 +19,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private ResideMenu resideMenu;
     private MainActivity mContext;
-    private ResideMenuItem itemHome;
-    private ResideMenuItem itemProfile;
+    private ResideMenuItem itemAboutMe;
+    private ResideMenuItem itemHowTo;
+    private ResideMenuItem itemGalerie;
+    private ResideMenuItem itemNews;
+    private ResideMenuItem itemQuizz;
     private ResideMenuItem itemCalendar;
-    private ResideMenuItem itemSettings;
+    private ResideMenuItem itemContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +47,29 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
-        itemHome     = new ResideMenuItem(this, R.drawable.icon_home,     "Home");
-        itemProfile  = new ResideMenuItem(this, R.drawable.icon_profile,  "Profile");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_calendar, "Calendar");
-        itemSettings = new ResideMenuItem(this, R.drawable.icon_settings, "Settings");
+        itemAboutMe = new ResideMenuItem(this, R.drawable.icon_uber_mich,     "Blerim Bunjaku");
+        itemHowTo = new ResideMenuItem(this, R.drawable.icon_wie_wahlen,  "Wie wählen");
+        itemGalerie = new ResideMenuItem(this, R.drawable.icon_galerie, "Galerie");
+        itemNews = new ResideMenuItem(this, R.drawable.icon_news, "News");
+        itemQuizz = new ResideMenuItem(this, R.drawable.icon_quizz, "Schweizermacher");
+        itemCalendar = new ResideMenuItem(this, R.drawable.icon_kalendar, "Kalender");
+        itemContact = new ResideMenuItem(this, R.drawable.icon_kontakt, "Kontact");
 
-        itemHome.setOnClickListener(this);
-        itemProfile.setOnClickListener(this);
+        itemAboutMe.setOnClickListener(this);
+        itemHowTo.setOnClickListener(this);
+        itemGalerie.setOnClickListener(this);
+        itemNews.setOnClickListener(this);
+        itemQuizz.setOnClickListener(this);
         itemCalendar.setOnClickListener(this);
-        itemSettings.setOnClickListener(this);
+        itemContact.setOnClickListener(this);
 
-        resideMenu.addMenuItem(itemHome, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemProfile, ResideMenu.DIRECTION_LEFT);
-        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_RIGHT);
-        resideMenu.addMenuItem(itemSettings, ResideMenu.DIRECTION_RIGHT);
+        resideMenu.addMenuItem(itemAboutMe, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemHowTo, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemGalerie, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemNews, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemQuizz, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemCalendar, ResideMenu.DIRECTION_LEFT);
+        resideMenu.addMenuItem(itemContact, ResideMenu.DIRECTION_LEFT);
 
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
@@ -67,12 +78,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             @Override
             public void onClick(View view) {
                 resideMenu.openMenu(ResideMenu.DIRECTION_LEFT);
-            }
-        });
-        findViewById(R.id.title_bar_right_menu).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT);
             }
         });
 
@@ -129,13 +134,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
 
-//        if (view == itemHome){
+//        if (view == itemAboutMe){
 //            changeFragment(new HomeFragment());
-//        }else if (view == itemProfile){
+//        }else if (view == itemHowTo){
 //            changeFragment(new ProfileFragment());
-//        }else if (view == itemCalendar){
+//        }else if (view == itemGalerie){
 //            changeFragment(new CalendarFragment());
-//        }else if (view == itemSettings){
+//        }else if (view == itemNews){
 //            changeFragment(new SettingsFragment());
 //        }
 
