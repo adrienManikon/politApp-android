@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.ogaclejapan.arclayout.ArcLayout;
@@ -184,9 +185,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 return;
         }
 
-        if (view instanceof Button) {
-            String text = "Clicked: " + ((Button) view).getText();
+        if (view instanceof ImageButton) {
+            String text = "Clicked: ";
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            return;
         }
 
         resideMenu.closeMenu();

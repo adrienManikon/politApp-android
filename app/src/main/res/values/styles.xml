@@ -10,11 +10,9 @@
     </style>
 
     <style name="Item.Share">
-        <item name="android:layout_width">@dimen/item_circle_size_share</item>
-        <item name="android:layout_height">@dimen/item_circle_size_share</item>
-        <item name="android:textSize">@dimen/item_font_size_share</item>
-        <item name="android:textColor">@color/share_primary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
     </style>
-
 
 </resources>

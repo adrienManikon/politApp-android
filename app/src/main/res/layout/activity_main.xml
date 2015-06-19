@@ -68,7 +68,7 @@
         android:id="@+id/menu_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@color/black_transparent"
         android:visibility="invisible"
         >
 
@@ -78,37 +78,39 @@
             android:layout_height="match_parent"
             app:arc_axisRadius="@dimen/layout_child_offset_share"
             app:arc_origin="center"
+            app:arc_color="@color/white"
             app:arc_radius="@dimen/layout_radius_share"
+
             >
 
-            <Button
+            <ImageButton
+                android:id="@+id/share_message"
                 style="@style/Item.Share"
-                android:background="@drawable/share_blue_oval"
-                android:text="A"
+                android:src="@drawable/message"
                 />
 
-            <Button
+            <ImageButton
+                android:id="@+id/share_email"
                 style="@style/Item.Share"
-                android:background="@drawable/share_blue_oval"
-                android:text="B"
+                android:src="@drawable/email"
                 />
 
-            <Button
+            <ImageButton
+                android:id="@+id/share_google"
                 style="@style/Item.Share"
-                android:background="@drawable/share_blue_oval"
-                android:text="C"
+                android:src="@drawable/google_drive"
                 />
 
-            <Button
+            <ImageButton
+                android:id="@+id/share_facebook"
                 style="@style/Item.Share"
-                android:background="@drawable/share_blue_oval"
-                android:text="D"
+                android:src="@drawable/facebook"
                 />
 
-            <Button
+            <ImageButton
+                android:id="@+id/share_twitter"
                 style="@style/Item.Share"
-                android:background="@drawable/share_blue_oval"
-                android:text="E"
+                android:src="@drawable/twitter"
                 />
 
         </com.ogaclejapan.arclayout.ArcLayout>
@@ -117,8 +119,10 @@
             android:id="@+id/center_item"
             style="@style/Item.Share"
             android:layout_gravity="center"
-            android:background="@drawable/share_oval"
-            android:text="F"
+            android:enabled="false"
+            android:background="@color/white"
+            android:text="Share with..."
+            android:textColor="@color/black"
             />
 
     </enyx.ch.politapp.widget.ClipRevealFrame>

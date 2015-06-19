@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="share_primary">#36465D</color>
+    <color name="black_transparent">#99000000</color>
+    <color name="white">@android:color/white</color>
+    <color name="transparent">#00000000</color>
+    <color name="black">@android:color/black</color>
 </resources>
