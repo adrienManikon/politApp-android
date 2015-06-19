@@ -1,6 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:orientation="vertical"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -49,8 +51,8 @@
             <Button
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:background="@drawable/icon_menu"
-                android:id="@+id/title_bar_right_menu"
+                android:background="@drawable/icon_share"
+                android:id="@+id/title_bar_right_share"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginRight="10dp"/>
         </FrameLayout>
@@ -61,6 +63,65 @@
             android:background="#ebebeb"/>
 
     </LinearLayout>
+
+    <enyx.ch.politapp.widget.ClipRevealFrame
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        android:visibility="invisible"
+        >
+
+        <com.ogaclejapan.arclayout.ArcLayout
+            android:id="@+id/arc_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:arc_axisRadius="@dimen/layout_child_offset_share"
+            app:arc_origin="center"
+            app:arc_radius="@dimen/layout_radius_share"
+            >
+
+            <Button
+                style="@style/Item.Share"
+                android:background="@drawable/share_blue_oval"
+                android:text="A"
+                />
+
+            <Button
+                style="@style/Item.Share"
+                android:background="@drawable/share_blue_oval"
+                android:text="B"
+                />
+
+            <Button
+                style="@style/Item.Share"
+                android:background="@drawable/share_blue_oval"
+                android:text="C"
+                />
+
+            <Button
+                style="@style/Item.Share"
+                android:background="@drawable/share_blue_oval"
+                android:text="D"
+                />
+
+            <Button
+                style="@style/Item.Share"
+                android:background="@drawable/share_blue_oval"
+                android:text="E"
+                />
+
+        </com.ogaclejapan.arclayout.ArcLayout>
+
+        <Button
+            android:id="@+id/center_item"
+            style="@style/Item.Share"
+            android:layout_gravity="center"
+            android:background="@drawable/share_oval"
+            android:text="F"
+            />
+
+    </enyx.ch.politapp.widget.ClipRevealFrame>
 
     <FrameLayout
         android:layout_width="match_parent"
