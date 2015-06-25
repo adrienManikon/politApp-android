@@ -39,7 +39,6 @@ import enyx.ch.politapp.widget.ClipRevealFrame;
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     private ResideMenu resideMenu;
-    private MainActivity mContext;
     private ResideMenuItem itemAboutMe;
     private ResideMenuItem itemHowTo;
     private ResideMenuItem itemGalerie;
@@ -59,7 +58,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mContext = this;
         setUpMenu();
         setUpShare();
 
@@ -390,10 +388,5 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         });
         anim.setDuration(50);
         return anim;
-    }
-
-    // What good method is to access resideMenu？
-    public ResideMenu getResideMenu(){
-        return resideMenu;
     }
 }
