@@ -46,6 +46,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     ClipRevealFrame menuLayout;
     ArcLayout arcLayout;
     View centerItem;
+    private boolean shareLayoutOpened = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +56,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mContext = this;
         setUpMenu();
         setUpShare();
-
     }
 
     private void setUpShare() {
 
-        rootLayout = (View) findViewById(R.id.root);
+        rootLayout = findViewById(R.id.root);
         menuLayout = (ClipRevealFrame) findViewById(R.id.menu_layout);
         arcLayout = (ArcLayout) findViewById(R.id.arc_layout);
         centerItem = findViewById(R.id.center_item);
@@ -183,6 +183,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.title_bar_right_share:
                 onShareButtonClick(view);
                 return;
+            case R.id.menu_layout:
+                return;
         }
 
         if (view instanceof ImageButton) {
@@ -190,7 +192,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             return;
         }
 
+        closeLayouts();
+    }
+
+    private void closeLayouts() {
+
         resideMenu.closeMenu();
+
+        if (shareLayoutOpened) {
+            onShareButtonClick(findViewById(R.id.title_bar_right_share));
+        }
+
     }
 
     private void share(ImageButton button) {
@@ -230,11 +242,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
         v.setSelected(!v.isSelected());
 
-
     }
 
     private void showMenu(int cx, int cy, float startRadius, float endRadius) {
+
         menuLayout.setVisibility(View.VISIBLE);
+        shareLayoutOpened = true;
 
         List<Animator> animList = new ArrayList<>();
 
@@ -255,6 +268,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void hideMenu(int cx, int cy, float startRadius, float endRadius) {
+
+        shareLayoutOpened = false;
         List<Animator> animList = new ArrayList<>();
 
         for (int i = arcLayout.getChildCount() - 1; i >= 0; i--) {
