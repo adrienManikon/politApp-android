@@ -5,4 +5,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="app_not_installed">This application is not installed.</string>
+    <string name="profil_name">Blerim Bunjaku</string>
+    <string name="how_to">Wie wählen</string>
+    <string name="galerie">Galerie</string>
+    <string name="news">News</string>
+    <string name="quizz_name">Schweizermacher</string>
+    <string name="calendar">Kalender</string>
+    <string name="contact">Kontact</string>
 </resources>

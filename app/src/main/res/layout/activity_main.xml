@@ -1,7 +1,6 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
-    android:orientation="vertical"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:onClick="onClick"
@@ -70,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black_transparent"
-        android:visibility="invisible"
+        android:visibility="gone"
         >
 
         <com.ogaclejapan.arclayout.ArcLayout
@@ -129,10 +128,11 @@
     </enyx.ch.politapp.widget.ClipRevealFrame>
 
     <FrameLayout
+        android:layout_below="@+id/layout_top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/main_fragment">
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>

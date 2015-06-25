@@ -17,7 +17,6 @@ import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.special.ResideMenu.ResideMenu;
@@ -27,6 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enyx.ch.politapp.R;
+import enyx.ch.politapp.fragment.AboutMeFragment;
+import enyx.ch.politapp.fragment.CalendarFragment;
+import enyx.ch.politapp.fragment.ContactFragment;
+import enyx.ch.politapp.fragment.GalerieFragment;
+import enyx.ch.politapp.fragment.HowToFragment;
+import enyx.ch.politapp.fragment.NewsFragment;
+import enyx.ch.politapp.fragment.QuizzFragment;
 import enyx.ch.politapp.utils.AnimatorUtils;
 import enyx.ch.politapp.utils.ShareUtils;
 import enyx.ch.politapp.widget.ClipRevealFrame;
@@ -56,6 +62,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mContext = this;
         setUpMenu();
         setUpShare();
+
+        if (savedInstanceState == null) {
+            changeFragment(new AboutMeFragment());
+        }
     }
 
     private void setUpShare() {
@@ -85,13 +95,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
-        itemAboutMe = new ResideMenuItem(this, R.drawable.icon_uber_mich,     "Blerim Bunjaku");
-        itemHowTo = new ResideMenuItem(this, R.drawable.icon_wie_wahlen,  "Wie wählen");
-        itemGalerie = new ResideMenuItem(this, R.drawable.icon_galerie, "Galerie");
-        itemNews = new ResideMenuItem(this, R.drawable.icon_news, "News");
-        itemQuizz = new ResideMenuItem(this, R.drawable.icon_quizz, "Schweizermacher");
-        itemCalendar = new ResideMenuItem(this, R.drawable.icon_kalendar, "Kalender");
-        itemContact = new ResideMenuItem(this, R.drawable.icon_kontakt, "Kontact");
+        itemAboutMe = new ResideMenuItem(this, R.drawable.icon_uber_mich, R.string.profil_name);
+        itemHowTo = new ResideMenuItem(this, R.drawable.icon_wie_wahlen, R.string.how_to);
+        itemGalerie = new ResideMenuItem(this, R.drawable.icon_galerie, R.string.galerie);
+        itemNews = new ResideMenuItem(this, R.drawable.icon_news, R.string.news);
+        itemQuizz = new ResideMenuItem(this, R.drawable.icon_quizz, R.string.quizz_name);
+        itemCalendar = new ResideMenuItem(this, R.drawable.icon_kalendar, R.string.calendar);
+        itemContact = new ResideMenuItem(this, R.drawable.icon_kontakt, R.string.contact);
 
         itemAboutMe.setOnClickListener(this);
         itemHowTo.setOnClickListener(this);
@@ -143,12 +153,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            Toast.makeText(mContext, "Menu is opened!", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void closeMenu() {
-            Toast.makeText(mContext, "Menu is closed!", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -169,15 +177,21 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
 
-//        if (view == itemAboutMe){
-//            changeFragment(new HomeFragment());
-//        }else if (view == itemHowTo){
-//            changeFragment(new ProfileFragment());
-//        }else if (view == itemGalerie){
-//            changeFragment(new CalendarFragment());
-//        }else if (view == itemNews){
-//            changeFragment(new SettingsFragment());
-//        }
+        if (view == itemAboutMe) {
+            changeFragment(new AboutMeFragment());
+        } else if (view == itemHowTo) {
+            changeFragment(new HowToFragment());
+        } else if (view == itemGalerie) {
+            changeFragment(new GalerieFragment());
+        } else if (view == itemNews) {
+            changeFragment(new NewsFragment());
+        } else if (view == itemCalendar) {
+            changeFragment(new CalendarFragment());
+        } else if (view == itemQuizz) {
+            changeFragment(new QuizzFragment());
+        } else if (view == itemContact) {
+            changeFragment(new ContactFragment());
+        }
 
         switch (view.getId()) {
             case R.id.title_bar_right_share:
@@ -285,7 +299,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                menuLayout.setVisibility(View.INVISIBLE);
+                menuLayout.setVisibility(View.GONE);
             }
         });
 
