@@ -1,22 +1,21 @@
 package enyx.ch.politapp.activity;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Build;
-import android.view.ViewAnimationUtils;
-import android.view.animation.AccelerateDecelerateInterpolator;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -29,6 +28,7 @@ import java.util.List;
 
 import enyx.ch.politapp.R;
 import enyx.ch.politapp.utils.AnimatorUtils;
+import enyx.ch.politapp.utils.ShareUtils;
 import enyx.ch.politapp.widget.ClipRevealFrame;
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
@@ -186,12 +186,32 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
 
         if (view instanceof ImageButton) {
-            String text = "Clicked: ";
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+            share((ImageButton) view);
             return;
         }
 
         resideMenu.closeMenu();
+    }
+
+    private void share(ImageButton button) {
+
+        switch (button.getId()) {
+            case R.id.share_email:
+                ShareUtils.ShareWith(this, ShareUtils.KindShare.EMAIL);
+                break;
+            case R.id.share_message:
+                ShareUtils.ShareWith(this, ShareUtils.KindShare.MESSAGE);
+                break;
+            case R.id.share_facebook:
+                ShareUtils.ShareWith(this, ShareUtils.KindShare.FACEBOOK);
+                break;
+            case R.id.share_google:
+                ShareUtils.ShareWith(this, ShareUtils.KindShare.GOOGLE);
+                break;
+            case R.id.share_twitter:
+                ShareUtils.ShareWith(this, ShareUtils.KindShare.TWITTER);
+                break;
+        }
     }
 
     private void onShareButtonClick(View v) {
