@@ -7,7 +7,6 @@ import android.animation.ObjectAnimator;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,7 +35,8 @@ import enyx.ch.politapp.fragment.QuizzFragment;
 import enyx.ch.politapp.utils.AnimatorUtils;
 import enyx.ch.politapp.utils.ShareUtils;
 import enyx.ch.politapp.widget.ClipRevealFrame;
-public class MainActivity extends FragmentActivity implements View.OnClickListener {
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ResideMenu resideMenu;
     private ResideMenuItem itemAboutMe;
