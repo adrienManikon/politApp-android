@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -17,6 +19,7 @@ import com.nineoldandroids.view.ViewHelper;
 import java.util.ArrayList;
 
 import enyx.ch.politapp.R;
+import enyx.ch.politapp.utils.AnimatorUtils;
 
 /**
  * Created by adrien.manikon on 25.06.15.
@@ -30,6 +33,17 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.about_me, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ImageView imageView = (ImageView) parentActivity.findViewById(R.id.image_profile);
+        RelativeLayout layout = (RelativeLayout) parentActivity.findViewById(R.id.layout_header);
+
+        AnimatorUtils.startAnimation(imageView, R.anim.slide_left_to_right);
+        AnimatorUtils.startAnimation(layout, R.anim.slide_up_to_down);
     }
 
     @Override

@@ -1,6 +1,11 @@
 package enyx.ch.politapp.utils;
 
 import android.animation.PropertyValuesHolder;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
+import enyx.ch.politapp.PolitApplication;
 
 /**
  * Created by adrien.manikon on 19.06.15.
@@ -35,5 +40,12 @@ public class AnimatorUtils {
 
     public static PropertyValuesHolder scaleY(float... values) {
         return PropertyValuesHolder.ofFloat(SCALE_Y, values);
+    }
+
+    public static void startAnimation(View view, int resId) {
+
+        Animation animation = AnimationUtils.loadAnimation(PolitApplication.getContext(), resId);
+        view.startAnimation(animation);
+
     }
 }
