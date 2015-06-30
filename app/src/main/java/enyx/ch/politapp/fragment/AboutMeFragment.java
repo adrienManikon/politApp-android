@@ -54,7 +54,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
 
     protected void setDummyDataWithHeader(ListView listView, int headerHeight) {
-        setDummyDataWithHeader(listView, headerHeight, 100);
+        setDummyDataWithHeader(listView, headerHeight, NUM_OF_ITEMS);
     }
 
     protected void setDummyDataWithHeader(ListView listView, int headerHeight, int num) {

@@ -3,12 +3,7 @@
     android:layout_height="match_parent"
     android:clipChildren="false">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/flexible_space_image_height"
-        android:scaleType="centerCrop"
-        android:src="@drawable/quote_background" />
+    <include layout="@layout/image_header_slider" />
 
     <View
         android:id="@+id/list_background"

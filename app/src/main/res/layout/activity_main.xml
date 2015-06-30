@@ -12,11 +12,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/layout_top">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#2ea3fe"/>
-
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
@@ -63,6 +58,13 @@
             android:background="#ebebeb"/>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_below="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/main_fragment"></FrameLayout>
 
     <enyx.ch.politapp.widget.ClipRevealFrame
         android:id="@+id/menu_layout"
@@ -126,13 +128,5 @@
             />
 
     </enyx.ch.politapp.widget.ClipRevealFrame>
-
-    <FrameLayout
-        android:layout_below="@+id/layout_top"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/main_fragment">
-    </FrameLayout>
 
 </RelativeLayout>
