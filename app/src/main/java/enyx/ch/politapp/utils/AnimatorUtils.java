@@ -48,4 +48,12 @@ public class AnimatorUtils {
         view.startAnimation(animation);
 
     }
+
+    public static void startAnimation(View view, int resId, Animation.AnimationListener animationListener) {
+
+        Animation animation = AnimationUtils.loadAnimation(PolitApplication.getContext(), resId);
+        animation.setAnimationListener(animationListener);
+        view.startAnimation(animation);
+
+    }
 }

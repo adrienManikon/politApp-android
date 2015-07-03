@@ -5,12 +5,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -40,10 +42,33 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
         super.onResume();
 
         ImageView imageView = (ImageView) parentActivity.findViewById(R.id.image_profile);
-        RelativeLayout layout = (RelativeLayout) parentActivity.findViewById(R.id.layout_header);
+        RelativeLayout layout = (RelativeLayout) parentActivity.findViewById(R.id.sub_layout_header);
+        final TextView textHeader = (TextView) parentActivity.findViewById(R.id.text_sub_header);
+
+        animImageHeader(imageView, layout, textHeader);
+    }
+
+    private void animImageHeader(ImageView imageView, RelativeLayout layout, final TextView textHeader) {
 
         AnimatorUtils.startAnimation(imageView, R.anim.slide_left_to_right);
-        AnimatorUtils.startAnimation(layout, R.anim.slide_up_to_down);
+        AnimatorUtils.startAnimation(layout, R.anim.slide_up_to_down, new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                AnimatorUtils.startAnimation(textHeader, R.anim.shake);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
     }
 
     @Override
