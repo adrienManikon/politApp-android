@@ -38,11 +38,10 @@ import enyx.ch.politapp.fragment.QuizzFragment;
 import enyx.ch.politapp.utils.AnimatorUtils;
 import enyx.ch.politapp.utils.ShareUtils;
 import enyx.ch.politapp.widget.ClipRevealFrame;
-import enyx.ch.politapp.widget.MainMenu;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, View.OnTouchListener {
 
-    private MainMenu resideMenu;
+    private ResideMenu resideMenu;
     private ResideMenuItem itemAboutMe;
     private ResideMenuItem itemHowTo;
     private ResideMenuItem itemGalerie;
@@ -72,10 +71,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
-    public View getPriorityView() {
-        return priorityView;
-    }
-
     public void setPriorityView(View priorityView) {
         this.priorityView = priorityView;
     }
@@ -99,7 +94,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void setUpMenu() {
         // attach to current activity;
-        resideMenu = new MainMenu(this);
+        resideMenu = new ResideMenu(this);
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
@@ -172,7 +167,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     };
 
-    private void changeFragment(Fragment targetFragment){
+    private void changeFragment(Fragment targetFragment) {
         clearView();
         getSupportFragmentManager()
                 .beginTransaction()

@@ -28,8 +28,7 @@ public class PolitApplication extends Application {
         try {
             packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
             return true;
-        }
-        catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
     }

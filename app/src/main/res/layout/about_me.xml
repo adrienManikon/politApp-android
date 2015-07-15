@@ -5,7 +5,7 @@
 
     <!--<include layout="@layout/image_header_slider" />-->
 
-    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    <enyx.ch.politapp.widget.ViewSlider xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="@dimen/flexible_space_image_height" />

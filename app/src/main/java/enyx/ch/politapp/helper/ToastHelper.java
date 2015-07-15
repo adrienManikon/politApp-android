@@ -7,17 +7,18 @@ import android.widget.Toast;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import enyx.ch.politapp.activity.MainActivity;
-
 /**
  * Created by adrien.manikon on 25.06.15.
  */
 public class ToastHelper {
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @IntDef({Toast.LENGTH_SHORT, Toast.LENGTH_LONG})
     @Retention(RetentionPolicy.SOURCE)
-    public @interface Duration {}
+    public @interface Duration {
+    }
 
     private static ToastHelper _instance;
 

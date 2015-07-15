@@ -13,7 +13,6 @@ import enyx.ch.politapp.fragment.ImageSlideFragment;
  */
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-    int currentPosition = 0;
     List<ImageSlideFragment> slideFragments;
 
     public ScreenSlidePagerAdapter(FragmentManager fm, List<ImageSlideFragment> slideFragments) {
@@ -23,15 +22,7 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        currentPosition = position;
         return slideFragments.get(position);
-    }
-
-    public Fragment getCurrentItem() {
-        if (currentPosition < slideFragments.size())
-            return slideFragments.get(currentPosition);
-        else
-            return null;
     }
 
     @Override

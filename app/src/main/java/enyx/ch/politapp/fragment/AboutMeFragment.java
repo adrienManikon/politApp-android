@@ -2,7 +2,6 @@ package enyx.ch.politapp.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ import enyx.ch.politapp.R;
 import enyx.ch.politapp.activity.MainActivity;
 import enyx.ch.politapp.adapter.ScreenSlidePagerAdapter;
 import enyx.ch.politapp.widget.SliderFragmentSingleton;
+import enyx.ch.politapp.widget.ViewSlider;
 
 /**
  * Created by adrien.manikon on 25.06.15.
@@ -31,7 +31,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
     private static final int NUM_OF_ITEMS = 100;
     private static final int NUM_OF_ITEMS_FEW = 3;
-    private ViewPager mPager;
+    private ViewSlider viewSlider;
     private ScreenSlidePagerAdapter mPagerAdapter;
 
     @Nullable
@@ -44,34 +44,16 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     public void onResume() {
         super.onResume();
 
-        mPager = (ViewPager) parentActivity.findViewById(R.id.slider);
+        viewSlider = (ViewSlider) parentActivity.findViewById(R.id.slider);
         mPagerAdapter = new ScreenSlidePagerAdapter(getChildFragmentManager(), getListSlideFragments());
         SliderFragmentSingleton.getInstance().setFragment((ImageSlideFragment) mPagerAdapter.getItem(0));
-        mPager.setAdapter(mPagerAdapter);
-        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                SliderFragmentSingleton fragmentSingleton = SliderFragmentSingleton.getInstance();
-                fragmentSingleton.setFragment((ImageSlideFragment) mPagerAdapter.getItem(position));
-                fragmentSingleton.resumeFragment();
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        viewSlider.setAdapter(mPagerAdapter);
 
         if (parentActivity instanceof MainActivity) {
             MainActivity mainActivity = (MainActivity) parentActivity;
 
-            mainActivity.addIgnoredView(mPager);
-            mainActivity.setPriorityView(mPager);
+            mainActivity.addIgnoredView(viewSlider);
+            mainActivity.setPriorityView(viewSlider);
         }
 
     }
