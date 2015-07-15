@@ -3,7 +3,12 @@
     android:layout_height="match_parent"
     android:clipChildren="false">
 
-    <include layout="@layout/image_header_slider" />
+    <!--<include layout="@layout/image_header_slider" />-->
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/flexible_space_image_height" />
 
     <View
         android:id="@+id/list_background"

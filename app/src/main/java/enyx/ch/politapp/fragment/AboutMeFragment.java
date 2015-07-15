@@ -2,26 +2,27 @@ package enyx.ch.politapp.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.nineoldandroids.view.ViewHelper;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import enyx.ch.politapp.R;
-import enyx.ch.politapp.utils.AnimatorUtils;
+import enyx.ch.politapp.activity.MainActivity;
+import enyx.ch.politapp.adapter.ScreenSlidePagerAdapter;
+import enyx.ch.politapp.widget.SliderFragmentSingleton;
 
 /**
  * Created by adrien.manikon on 25.06.15.
@@ -30,6 +31,8 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
     private static final int NUM_OF_ITEMS = 100;
     private static final int NUM_OF_ITEMS_FEW = 3;
+    private ViewPager mPager;
+    private ScreenSlidePagerAdapter mPagerAdapter;
 
     @Nullable
     @Override
@@ -41,34 +44,47 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     public void onResume() {
         super.onResume();
 
-        ImageView imageView = (ImageView) parentActivity.findViewById(R.id.image_profile);
-        RelativeLayout layout = (RelativeLayout) parentActivity.findViewById(R.id.sub_layout_header);
-        final TextView textHeader = (TextView) parentActivity.findViewById(R.id.text_sub_header);
-
-        animImageHeader(imageView, layout, textHeader);
-    }
-
-    private void animImageHeader(ImageView imageView, RelativeLayout layout, final TextView textHeader) {
-
-        AnimatorUtils.startAnimation(imageView, R.anim.slide_left_to_right);
-        AnimatorUtils.startAnimation(layout, R.anim.slide_up_to_down, new Animation.AnimationListener() {
+        mPager = (ViewPager) parentActivity.findViewById(R.id.slider);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getChildFragmentManager(), getListSlideFragments());
+        SliderFragmentSingleton.getInstance().setFragment((ImageSlideFragment) mPagerAdapter.getItem(0));
+        mPager.setAdapter(mPagerAdapter);
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
 
             @Override
-            public void onAnimationEnd(Animation animation) {
-
-                AnimatorUtils.startAnimation(textHeader, R.anim.shake);
+            public void onPageSelected(int position) {
+                SliderFragmentSingleton fragmentSingleton = SliderFragmentSingleton.getInstance();
+                fragmentSingleton.setFragment((ImageSlideFragment) mPagerAdapter.getItem(position));
+                fragmentSingleton.resumeFragment();
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
 
+        if (parentActivity instanceof MainActivity) {
+            MainActivity mainActivity = (MainActivity) parentActivity;
+
+            mainActivity.addIgnoredView(mPager);
+            mainActivity.setPriorityView(mPager);
+        }
+
+    }
+
+    private List<ImageSlideFragment> getListSlideFragments() {
+
+        List<ImageSlideFragment> imageSlideFragments = new LinkedList<>();
+
+        for (int i = 0; i < 3; i++) {
+            imageSlideFragments.add(ImageSlideFragment.create(i));
+        }
+
+        return imageSlideFragments;
     }
 
     @Override

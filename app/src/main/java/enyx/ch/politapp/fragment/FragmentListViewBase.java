@@ -51,7 +51,7 @@ public abstract class FragmentListViewBase<S extends Scrollable> extends Fragmen
         // within mIntersectionHeight.
         mIntersectionHeight = getResources().getDimensionPixelSize(R.dimen.intersection_height);
 
-        mImage = parentActivity.findViewById(R.id.image);
+        mImage = parentActivity.findViewById(R.id.slider);
         mHeader = parentActivity.findViewById(R.id.header);
         mHeaderBar = parentActivity.findViewById(R.id.header_bar);
         mHeaderBackground = parentActivity.findViewById(R.id.header_background);

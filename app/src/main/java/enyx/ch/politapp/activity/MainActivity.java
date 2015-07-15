@@ -4,8 +4,10 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
@@ -16,6 +18,7 @@ import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.special.ResideMenu.ResideMenu;
@@ -35,10 +38,11 @@ import enyx.ch.politapp.fragment.QuizzFragment;
 import enyx.ch.politapp.utils.AnimatorUtils;
 import enyx.ch.politapp.utils.ShareUtils;
 import enyx.ch.politapp.widget.ClipRevealFrame;
+import enyx.ch.politapp.widget.MainMenu;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, View.OnTouchListener {
 
-    private ResideMenu resideMenu;
+    private MainMenu resideMenu;
     private ResideMenuItem itemAboutMe;
     private ResideMenuItem itemHowTo;
     private ResideMenuItem itemGalerie;
@@ -46,6 +50,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ResideMenuItem itemQuizz;
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemContact;
+
+    private View priorityView;
 
     View rootLayout;
     ClipRevealFrame menuLayout;
@@ -64,6 +70,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (savedInstanceState == null) {
             changeFragment(new AboutMeFragment());
         }
+    }
+
+    public View getPriorityView() {
+        return priorityView;
+    }
+
+    public void setPriorityView(View priorityView) {
+        this.priorityView = priorityView;
     }
 
     private void setUpShare() {
@@ -85,7 +99,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void setUpMenu() {
         // attach to current activity;
-        resideMenu = new ResideMenu(this);
+        resideMenu = new MainMenu(this);
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
@@ -159,7 +173,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     };
 
     private void changeFragment(Fragment targetFragment){
-        resideMenu.clearIgnoredViewList();
+        clearView();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_fragment, targetFragment, "fragment")
@@ -167,9 +181,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 .commit();
     }
 
+    private void clearView() {
+        resideMenu.clearIgnoredViewList();
+        priorityView = null;
+    }
+
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return resideMenu.dispatchTouchEvent(ev);
+    public boolean dispatchTouchEvent(@NonNull MotionEvent ev) {
+
+        if (priorityView != null && isInsidePriorityView(ev)) {
+            return priorityView.dispatchTouchEvent(ev);
+        } else {
+            return resideMenu.dispatchTouchEvent(ev);
+        }
+
+//        return resideMenu.dispatchTouchEvent(ev);
+    }
+
+    private boolean isInsidePriorityView(MotionEvent ev) {
+
+        Rect rect = new Rect();
+        priorityView.getGlobalVisibleRect(rect);
+
+        return rect.contains((int) ev.getX(), (int) ev.getY());
     }
 
     @Override
@@ -388,5 +422,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
         anim.setDuration(50);
         return anim;
+    }
+
+    public void addIgnoredView(View view) {
+        resideMenu.addIgnoredView(view);
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Toast.makeText(this, Integer.toString(event.getAction()), Toast.LENGTH_SHORT);
+        return false;
     }
 }
