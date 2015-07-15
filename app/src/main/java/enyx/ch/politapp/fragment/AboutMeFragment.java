@@ -21,7 +21,6 @@ import java.util.List;
 import enyx.ch.politapp.R;
 import enyx.ch.politapp.activity.MainActivity;
 import enyx.ch.politapp.adapter.ScreenSlidePagerAdapter;
-import enyx.ch.politapp.widget.SliderFragmentSingleton;
 import enyx.ch.politapp.widget.ViewSlider;
 
 /**
@@ -46,8 +45,8 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
         viewSlider = (ViewSlider) parentActivity.findViewById(R.id.slider);
         mPagerAdapter = new ScreenSlidePagerAdapter(getChildFragmentManager(), getListSlideFragments());
-        SliderFragmentSingleton.getInstance().setFragment((ImageSlideFragment) mPagerAdapter.getItem(0));
         viewSlider.setAdapter(mPagerAdapter);
+        viewSlider.startAutoSlide(mPagerAdapter.getCount());
 
         if (parentActivity instanceof MainActivity) {
             MainActivity mainActivity = (MainActivity) parentActivity;
@@ -56,6 +55,14 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
             mainActivity.setPriorityView(viewSlider);
         }
 
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (viewSlider.isAutoSlide())
+            viewSlider.stopAutoSlide();
     }
 
     private List<ImageSlideFragment> getListSlideFragments() {

@@ -61,6 +61,7 @@ public class ImageSlideFragment extends Fragment implements View.OnTouchListener
         imageView = (ImageView) rootView.findViewById(R.id.image_profile);
         layout = (RelativeLayout) rootView.findViewById(R.id.sub_layout_header);
         textHeader = (TextView) rootView.findViewById(R.id.text_sub_header);
+        textHeader.setText("page " + String.valueOf(pageNumber));
 
 //        rootView.setOnTouchListener(new View.OnTouchListener() {
 //            @Override
