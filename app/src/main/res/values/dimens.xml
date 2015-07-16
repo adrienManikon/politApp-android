@@ -10,7 +10,8 @@
     <dimen name="item_font_size_share">30sp</dimen>
 
     <dimen name="flexible_space_image_height">240dp</dimen>
-    <dimen name="header_bar_height">72dp</dimen>
+    <dimen name="header_bar_height">52dp</dimen>
     <dimen name="intersection_height">16dp</dimen>
     <dimen name="depth">2dp</dimen>
+    <dimen name="big">25sp</dimen>
 </resources>
