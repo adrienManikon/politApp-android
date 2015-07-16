@@ -86,7 +86,6 @@ public class ViewSlider extends ViewPager {
 
     }
 
-
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
 
@@ -95,7 +94,13 @@ public class ViewSlider extends ViewPager {
                 stopAutoSlide();
         }
 
-        return super.onTouchEvent(ev);
+        try {
+            return super.onTouchEvent(ev);
+        } catch (IllegalArgumentException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
+        }
+
+        return false;
     }
 
     public void stopAutoSlide() {

@@ -122,27 +122,36 @@ public abstract class FragmentListViewBase<S extends Scrollable> extends Fragmen
 
 
     private void changeHeaderBackgroundHeightAnimated(boolean shouldShowGap, boolean animated) {
+
         if (mGapIsChanging) {
             return;
         }
+
         final int heightOnGapShown = mHeaderBar.getHeight();
         final int heightOnGapHidden = mHeaderBar.getHeight() + mActionBarSize;
         final float from = mHeaderBackground.getLayoutParams().height;
         final float to;
+
         if (shouldShowGap) {
+
             if (!mGapHidden) {
                 // Already shown
                 return;
             }
             to = heightOnGapShown;
+
         } else {
+
             if (mGapHidden) {
                 // Already hidden
                 return;
             }
             to = heightOnGapHidden;
+
         }
+
         if (animated) {
+
             ViewPropertyAnimator.animate(mHeaderBackground).cancel();
             ValueAnimator a = ValueAnimator.ofFloat(from, to);
             a.setDuration(100);
@@ -155,17 +164,22 @@ public abstract class FragmentListViewBase<S extends Scrollable> extends Fragmen
                 }
             });
             a.start();
+
         } else {
             changeHeaderBackgroundHeight(to, to, heightOnGapHidden);
+
         }
     }
 
     private void changeHeaderBackgroundHeight(float height, float to, float heightOnGapHidden) {
+
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mHeaderBackground.getLayoutParams();
+
         lp.height = (int) height;
         lp.topMargin = (int) (mHeaderBar.getHeight() - height);
         mHeaderBackground.requestLayout();
         mGapIsChanging = (height != to);
+
         if (!mGapIsChanging) {
             mGapHidden = (height == heightOnGapHidden);
         }
