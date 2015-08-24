@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.ListView;
+import android.widget.ListAdapter;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableListView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -20,6 +18,7 @@ import java.util.List;
 
 import enyx.ch.politapp.R;
 import enyx.ch.politapp.activity.MainActivity;
+import enyx.ch.politapp.adapter.ListImageTextAdapter;
 import enyx.ch.politapp.adapter.ScreenSlidePagerAdapter;
 import enyx.ch.politapp.widget.ViewSlider;
 
@@ -31,7 +30,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     private static final int NUM_OF_ITEMS = 100;
     private static final int NUM_OF_ITEMS_FEW = 3;
     private ViewSlider viewSlider;
-    private ScreenSlidePagerAdapter mPagerAdapter;
+    private ObservableListView listView;
 
     @Nullable
     @Override
@@ -44,7 +43,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
         super.onResume();
 
         viewSlider = (ViewSlider) parentActivity.findViewById(R.id.slider);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getChildFragmentManager(), getListSlideFragments());
+        ScreenSlidePagerAdapter mPagerAdapter = new ScreenSlidePagerAdapter(getChildFragmentManager(), getListSlideFragments());
         viewSlider.setAdapter(mPagerAdapter);
         viewSlider.startAutoSlide(mPagerAdapter.getCount());
 
@@ -78,9 +77,9 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
     @Override
     protected ObservableListView createScrollable() {
-        ObservableListView listView = (ObservableListView) parentActivity.findViewById(R.id.scroll);
+        listView = (ObservableListView) parentActivity.findViewById(R.id.scroll);
         listView.setScrollViewCallbacks(this);
-        setDummyDataWithHeader(listView, mFlexibleSpaceImageHeight);
+        setListView(mFlexibleSpaceImageHeight);
         return listView;
     }
 
@@ -92,48 +91,36 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
         ViewHelper.setTranslationY(mListBackgroundView, ViewHelper.getTranslationY(mHeader));
     }
 
-    /*************
-     * DUMMY DATA
-     *************/
+    protected void setListView(int headerHeight) {
 
-
-    protected void setDummyDataWithHeader(ListView listView, int headerHeight) {
-        setDummyDataWithHeader(listView, headerHeight, NUM_OF_ITEMS);
-    }
-
-    protected void setDummyDataWithHeader(ListView listView, int headerHeight, int num) {
         View headerView = new View(parentActivity);
+
         headerView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, headerHeight));
         headerView.setMinimumHeight(headerHeight);
         // This is required to disable header's list selector effect
         headerView.setClickable(true);
-        setDummyDataWithHeader(listView, headerView, num);
+
+        listView.addHeaderView(getHeaderView(headerHeight));
+        listView.setAdapter(getAdapterForListView());
     }
 
-    protected void setDummyDataWithHeader(ListView listView, View headerView, int num) {
-        listView.addHeaderView(headerView);
-        setDummyData(listView, num);
+    private ListAdapter getAdapterForListView() {
+        return new ListImageTextAdapter(parentActivity, android.R.layout.simple_list_item_1, getDummyData(NUM_OF_ITEMS));
     }
 
-    protected void setDummyData(GridView gridView) {
-        gridView.setAdapter(new ArrayAdapter<>(parentActivity, android.R.layout.simple_list_item_1, getDummyData()));
+    private View getHeaderView(int headerHeight) {
+
+        View headerView = new View(parentActivity);
+
+        headerView.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, headerHeight));
+        headerView.setMinimumHeight(headerHeight);
+        // This is required to disable header's list selector effect
+        headerView.setClickable(true);
+
+        return headerView;
+
     }
 
-    public static ArrayList<String> getDummyData() {
-        return getDummyData(NUM_OF_ITEMS);
-    }
-
-    protected void setDummyData(ListView listView) {
-        setDummyData(listView, NUM_OF_ITEMS);
-    }
-
-    protected void setDummyDataFew(ListView listView) {
-        setDummyData(listView, NUM_OF_ITEMS_FEW);
-    }
-
-    protected void setDummyData(ListView listView, int num) {
-        listView.setAdapter(new ArrayAdapter<>(parentActivity, android.R.layout.simple_list_item_1, getDummyData(num)));
-    }
 
     public static ArrayList<String> getDummyData(int num) {
         ArrayList<String> items = new ArrayList<>();
