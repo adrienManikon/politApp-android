@@ -20,6 +20,8 @@ import enyx.ch.politapp.R;
 import enyx.ch.politapp.activity.MainActivity;
 import enyx.ch.politapp.adapter.ListImageTextAdapter;
 import enyx.ch.politapp.adapter.ScreenSlidePagerAdapter;
+import enyx.ch.politapp.api.ArticleApi;
+import enyx.ch.politapp.model.Article;
 import enyx.ch.politapp.widget.ViewSlider;
 
 /**
@@ -122,11 +124,14 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     }
 
 
-    public static ArrayList<String> getDummyData(int num) {
-        ArrayList<String> items = new ArrayList<>();
-        for (int i = 1; i <= num; i++) {
-            items.add("Item " + i);
-        }
-        return items;
+    public static ArrayList<Article> getDummyData(int num) {
+
+        return ArticleApi.getFeed();
+
+//        ArrayList<String> items = new ArrayList<>();
+//        for (int i = 1; i <= num; i++) {
+//            items.add("Item " + i);
+//        }
+//        return items;
     }
 }

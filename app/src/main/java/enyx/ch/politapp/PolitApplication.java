@@ -32,4 +32,5 @@ public class PolitApplication extends Application {
             return false;
         }
     }
+
 }

@@ -1,0 +1,14 @@
+<!ELEMENT articles (article)*>
+<!ELEMENT article (bigimageurl|smallimageurl|titlenews|shortdescription|description|linknews|datenews|topposition|topnews|startingpoint|principle|goal)*>
+    <!ELEMENT bigimageurl (#PCDATA)>
+    <!ELEMENT smallimageurl (#PCDATA)>
+    <!ELEMENT titlenews (#PCDATA)>
+    <!ELEMENT shortdescription (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT linknews (#PCDATA)>
+    <!ELEMENT datenews (#PCDATA)>
+    <!ELEMENT topposition (#PCDATA)>
+    <!ELEMENT startingpoint (#PCDATA)>
+    <!ELEMENT principle (#PCDATA)>
+    <!ELEMENT goal (#PCDATA)>
+    <!ELEMENT topnews (#PCDATA)>]>
