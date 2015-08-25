@@ -29,8 +29,6 @@ import enyx.ch.politapp.widget.ViewSlider;
  */
 public class AboutMeFragment extends FragmentListViewBase<ObservableListView> implements ObservableScrollViewCallbacks {
 
-    private static final int NUM_OF_ITEMS = 100;
-    private static final int NUM_OF_ITEMS_FEW = 3;
     private ViewSlider viewSlider;
     private ObservableListView listView;
 
@@ -55,7 +53,6 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
             mainActivity.addIgnoredView(viewSlider);
             mainActivity.setPriorityView(viewSlider);
         }
-
 
     }
 
@@ -107,7 +104,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
     }
 
     private ListAdapter getAdapterForListView() {
-        return new ListImageTextAdapter(parentActivity, android.R.layout.simple_list_item_1, getDummyData(NUM_OF_ITEMS));
+        return new ListImageTextAdapter(parentActivity, R.layout.article_item, getListFeed());
     }
 
     private View getHeaderView(int headerHeight) {
@@ -123,15 +120,7 @@ public class AboutMeFragment extends FragmentListViewBase<ObservableListView> im
 
     }
 
-
-    public static ArrayList<Article> getDummyData(int num) {
-
+    public static ArrayList<Article> getListFeed() {
         return ArticleApi.getFeed();
-
-//        ArrayList<String> items = new ArrayList<>();
-//        for (int i = 1; i <= num; i++) {
-//            items.add("Item " + i);
-//        }
-//        return items;
     }
 }

@@ -33,4 +33,7 @@ public class PolitApplication extends Application {
         }
     }
 
+    public static int getImageResIdByName(String name) {
+        return getContext().getResources().getIdentifier(name, "drawable", getContext().getPackageName());
+    }
 }
