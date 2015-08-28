@@ -9,6 +9,7 @@ public class Article {
     private String smallImageUrl;
     private String titleNews;
     private String shortDescription;
+    private String category;
 
     public String getBigImageUrl() {
         return bigImageUrl;
@@ -40,5 +41,13 @@ public class Article {
 
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }

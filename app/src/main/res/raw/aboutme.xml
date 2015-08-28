@@ -9,9 +9,11 @@
         <startingpoint>Die Familien erbringen grosse Leistungen für unser Land und seine Zukunft. Sie vermitteln zentrale Werte und prägen die künftige Gesellschaft. Tragfähige Familien sind entscheidend für das Wohlergehen der Schweiz. \n \nDer Wertewandel in Politik, Gesellschaft und Kultur hat Auswirkungen auf die Familie. Christliche Werte, die das soziale Leben stützen, geraten in Bedrängnis. \n \nKinder sind zum häufigsten Armutsgrund geworden. Es mangelt an familienfreundlichem und bezahlbarem Wohnraum.</startingpoint>
         <principle>Die Familie ist eine verbindliche Lebensgemeinschaft mehrerer Generationen. \n \nDer Staat muss die Leistungen von Familien anerkennen und ihr Selbstbestimmungsrecht respektieren. \n \nDie Ehe zwischen Mann und Frau bildet den Kern der Familie. Sie soll gegenüber anderen Formen des Zusammenlebens privilegiert bleiben und geschützt werden. \n \nDie Vereinbarkeit von Familie und Beruf muss selbstverständlich und Familien-arbeit aufgewertet werden. Generationenübergreifende Leistungen gewinnen an Bedeutung: Grosseltern betreuen Kinder, Erwachsene ihre Eltern. Dieses Engagement ist zu anerkennen.</principle>
         <goal>Familien unterstützen \n \n• Höhere Kinder- und Ausbildungszulagen. \n• Ergänzungsleistungen für Familien mit tiefen Einkommen (Working Poor). \n• Gemeinnützigen Wohnungsbau substantiell fördern. \n• Familienfreundliche Quartiere. \n• Eine niederschwellige Familienberatung und Elternbildung vor Ort. \n• Alimentenbevorschussung einheitlich regeln. \n \n \nDas Wohl der Kinder \n \n• Flexible Arbeitszeitmodelle, mehr Teilzeitstellen und Job-Sharing-Angebote. \n• Betreuungsgutscheine statt Krippensubventionen. \n• Gleichbehandlung aller Betreuungsformen (Eigenbetreuung, Kitas, Tagesmütter etc.). \n \n \nEhe zwischen Mann und Frau schützen \n \n• Privilegien der Ehe beibehalten, d.h. weder aufheben, noch abwerten, noch auf andere Verbindungen ausdehnen. \n• Ehestrafe bei den Steuern, in der AHV und bei anderen Sozialversicherungen abschaffen. \n• Familiensplitting einführen. \n \n \nFamilienarbeit aufwerten \n \n• Einen grosszügigen und flexibel beziehbaren Elternurlaub ermöglichen (inkl. mindestens zwei Wochen Vaterschaftsurlaub).</goal>
+        <category>Zieke und Werte</category>
     </article>
     <article>
         <bigimageurl>uber_mich_schule</bigimageurl>
+        <category>Zieke und Werte</category>
         <smallimageurl>uber_mich_schule</smallimageurl>
         <titlenews>Familie</titlenews>
         <shortdescription>Bildung von Kopf, Herz und Hand.</shortdescription>
@@ -21,6 +23,7 @@
     </article>
     <article>
         <bigimageurl>uber_mich_integration</bigimageurl>
+        <category>Zieke und Werte</category>
         <smallimageurl>uber_mich_integration</smallimageurl>
         <titlenews>Migration</titlenews>
         <shortdescription>Verfolgten Schutz gewähren. Integration fördern und fordern.</shortdescription>
@@ -30,6 +33,7 @@
     </article>
     <article>
         <bigimageurl>uber_mich_wirtschaft</bigimageurl>
+        <category>Zieke und Werte</category>
         <smallimageurl>uber_mich_wirtschaft</smallimageurl>
         <titlenews>Wirtschaft</titlenews>
         <shortdescription>Gemeinwohl statt Gewinnmaximierung.</shortdescription>
@@ -40,6 +44,7 @@
     <article>
         <bigimageurl>uber_mich_staatsfinanzen</bigimageurl>
         <smallimageurl>uber_mich_staatsfinanzen</smallimageurl>
+        <category>Zieke und Werte</category>
         <titlenews>Staatsfinanzen</titlenews>
         <shortdescription>Gerechte Steuern und solide Staatsfinanzen.</shortdescription>
         <startingpoint>Gesunde Staatsfinanzen sind entscheidend für das Gemeinwohl, Verschuldung führt in die Unfreiheit. Die Schweiz ist in der glücklichen Lage, vergleichsweise wenig verschuldet zu sein. \n \nEin breiter Mittelstand ist von zentraler Bedeutung. Dessen verfügbares Einkommen gerät aber wegen Steuern, Abgaben und Sozialversicherungen unter Druck. \n \nDer Steuerwettbewerb und der Kampf um die Steuereinnahmen nehmen international und national zu. \nDie hohe Anspruchshaltung verschiedener Interessengruppen an den Staat steht im Konflikt mit den beschränkten Mitteln der öffentlichen Hand.</startingpoint>
@@ -49,6 +54,7 @@
     <article>
         <bigimageurl>uber_mich_verkehr</bigimageurl>
         <smallimageurl>uber_mich_verkehr</smallimageurl>
+        <category>Zieke und Werte</category>
         <titlenews>Verkehr</titlenews>
         <shortdescription>Weniger Verkehr, mehr Kostenwahrheit.</shortdescription>
         <startingpoint>Ein gut funktionierendes Verkehrssystem ist für eine vernetzte Volkswirtschaft wie die Schweiz unerlässlich. Die Bedeutung der Mobilität spiegelt sich in den Kosten und im Energieverbrauch wider. \n \nAn erster Stelle der verkehrsbedingten Umweltschäden ist der weltweite Klimawandel zu nennen. Aber auch Lärm-, Russ- und andere Schadstoff-Immissionen des motorisierten Individualverkehrs und in geringerem Ausmass auch des öffentlichen Verkehrs (öV) belasten Mensch und Umwelt. \n \nDie Kapazität des Verkehrsnetzes kann nicht beliebig ausgebaut werden, zumal sich mit jedem Ausbau auch die Nachfrage erhöht. Verstopfte Strassen und volle Züge sind nicht zuletzt eine Folge der zu billigen Mobilität.</startingpoint>
@@ -58,6 +64,7 @@
     <article>
         <bigimageurl>uber_mich_bildungswesen</bigimageurl>
         <smallimageurl>uber_mich_bildungswesen</smallimageurl>
+        <category>Zieke und Werte</category>
         <titlenews>Energie und Klima</titlenews>
         <shortdescription>Klima schützen und Energiewende schaffen.</shortdescription>
         <startingpoint>Unsere Wirtschaft und unser Wohlstand hängen in hohem Mass von reichlich vorhandener und günstiger Energie ab. Doch die fossilen Energieträger sowie Uran sind begrenzt und belasten die Umwelt stark. \n \nDer Klimaschutz ist dringend, es werden jedoch zu wenig Fortschritte erzielt. Die Folgen der Klimaerwärmung treffen früher und heftiger ein als erwartet. \n \nDie Energiewende ist eine grosse Herausforderung, insbesondere was die Speicherung der Energie anbelangt. Bei den erneuerbaren Energien sind wir gegenüber dem Ausland ins Hintertreffen geraten. \n \nBei allen nicht erneuerbaren Energieträgern sind wir vom Ausland abhängig. Da es sich oft um politisch instabile Regionen handelt, tragen wir ein hohes Versorgungsrisiko.</startingpoint>
@@ -67,30 +74,35 @@
     <article>
         <bigimageurl>uber_mich_setzte_ich</bigimageurl>
         <smallimageurl>uber_mich_setzte_ich</smallimageurl>
+        <category>Private</category>
         <titlenews>Dafür setze ich mich ein</titlenews>
         <startingpoint>• bessere Bildung \n• bessere Bedingungen für kleine und mittlere Unternehmen \n• Integrationsförderung \n• schonenden Umgang mit Energieressourcen \n• effektives Gesundheitswesen: Stärkung der Eigenverantwortung \n• Werte in der Wirtschaft, die über reine Gewinnmaximierung hinausgehen \n• Investitionen in berufliche Perspektiven für Jugendliche, in die Gewaltprävention, in den Umweltschutz und in die Bildung \n• Sozialpolitik, die allen Menschen Perspektiven eröffnet und gezielte Unterstützung für Benachteiligte bietet \n• Hilfe zur Selbsthilfe, um den Weg in eine möglichst grosse Selbstständigkeit und Unabhängigkeit vom Staat zu finden</startingpoint>
     </article>
     <article>
         <bigimageurl>uber_mich_schulpfleger</bigimageurl>
         <smallimageurl>uber_mich_schulpfleger</smallimageurl>
+        <category>Private</category>
         <titlenews>Als Schulpfleger</titlenews>
         <startingpoint>Blerim Bunjaku wurde am 18.05.2014 mit über 4’565 Stimmen in die Kreisschulpflege Seen-Mattenbach gewählt. Hierbei ist er für die Aussenwachten und somit für folgende Schulhäuser zuständig. \n \n-	Schulhaus Sennhof \n-	Schulhaus Weierweid \n-	Schulhaus Iberg Dorf \n-	Schulhaus Eidberg \n-	Kindergarten Weierhöhe.</startingpoint>
     </article>
     <article>
         <bigimageurl>uber_mich_geschaftsfuhrer</bigimageurl>
         <smallimageurl>uber_mich_geschaftsfuhrer</smallimageurl>
+        <category>Private</category>
         <titlenews>ls Geschäftsführer</titlenews>
         <startingpoint>Heute führt er erfolgreich das Unternehmen Enyx Web &amp; Mobile GmbH mit Sitz in Winterthur. Namhafte Kunden wie das Bundesamt für Gesundheit, Postfinance und andere grosse Unternehmen vertrauen auf die Kompetenz und Erfahrung.</startingpoint>
     </article>
     <article>
         <bigimageurl>uber_mich_familie_2</bigimageurl>
         <smallimageurl>uber_mich_familie_2</smallimageurl>
+        <category>Private</category>
         <titlenews>Als Familie</titlenews>
         <startingpoint>Blerim Bunjaku heiratete am 11.11.2001 Valentina Bunjaku, heute haben sie zwei Töchter Erola 2004 und Erona 2008. Valentina ist gelernte Hebamme und hilft heute im Unternehmen mit. Erola besucht die fünfte Klasse und Erona die erste Klasse.</startingpoint>
     </article>
     <article>
         <bigimageurl>uber_mich_kind</bigimageurl>
         <smallimageurl>uber_mich_kind</smallimageurl>
+        <category>Private</category>
         <titlenews>Als Kind</titlenews>
         <startingpoint>Blerim Bunjaku wurde 1978 als ältestes von drei Kindern in Kamenica/Dardane (Kosovo) geboren. Bereits mit 6 Monaten bzw. 1979 kam er mit den Eltern in die Schweiz. \nSeine Kindheit verbrachte er in Kilchberg bei Zürich wo er auch den Kindergarten und die Schule besuchte und seit 1992 lebt und arbeitetet er in Winterthur.</startingpoint>
     </article>

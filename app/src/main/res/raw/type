@@ -1,5 +1,5 @@
 <!ELEMENT articles (article)*>
-<!ELEMENT article (bigimageurl|smallimageurl|titlenews|shortdescription|description|linknews|datenews|topposition|topnews|startingpoint|principle|goal)*>
+<!ELEMENT article (bigimageurl|smallimageurl|titlenews|shortdescription|description|linknews|datenews|topposition|topnews|startingpoint|principle|goal|category)*>
     <!ELEMENT bigimageurl (#PCDATA)>
     <!ELEMENT smallimageurl (#PCDATA)>
     <!ELEMENT titlenews (#PCDATA)>
@@ -11,4 +11,5 @@
     <!ELEMENT startingpoint (#PCDATA)>
     <!ELEMENT principle (#PCDATA)>
     <!ELEMENT goal (#PCDATA)>
+    <!ELEMENT category (#PCDATA)>
     <!ELEMENT topnews (#PCDATA)>]>

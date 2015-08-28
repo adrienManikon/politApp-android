@@ -15,6 +15,7 @@ public class ArticleMapping {
     public static String SMALL_IMAGE_URL = "smallimageurl";
     public static String TITLE_NEWS = "titlenews";
     public static String SHORT_DESCRIPTION = "shortdescription";
+    public static String CATEGORY = "category";
 
     private LinkedHashMap<String, InstanceTypePair> linkedHashMap;
 
@@ -26,6 +27,7 @@ public class ArticleMapping {
         linkedHashMap.put(SMALL_IMAGE_URL, new InstanceTypePair(null, TypeTag.STRING));
         linkedHashMap.put(TITLE_NEWS, new InstanceTypePair(null, TypeTag.STRING));
         linkedHashMap.put(SHORT_DESCRIPTION, new InstanceTypePair(null, TypeTag.STRING));
+        linkedHashMap.put(CATEGORY, new InstanceTypePair(null, TypeTag.STRING));
 
     }
 
@@ -37,6 +39,7 @@ public class ArticleMapping {
         article.setSmallImageUrl(linkedHashMap.get(SMALL_IMAGE_URL).getInstance());
         article.setTitleNews(linkedHashMap.get(TITLE_NEWS).getInstance());
         article.setShortDescription(linkedHashMap.get(SHORT_DESCRIPTION).getInstance());
+        article.setCategory(linkedHashMap.get(CATEGORY).getInstance());
 
         return article;
     }
