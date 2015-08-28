@@ -36,10 +36,12 @@ public class ListImageTextAdapter extends BaseAdapter {
 
         articleItemAdapters = new ArrayList<>();
 
-        for (Article article : articles) {
+        if (articles != null) {
+            for (Article article : articles) {
 
-            articleItemAdapters.add(new ArticleItemAdapter(article));
+                articleItemAdapters.add(new ArticleItemAdapter(article));
 
+            }
         }
 
     }
